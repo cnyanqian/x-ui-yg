@@ -1,7 +1,7 @@
 #!/usr/bin/expect
 
 # 设置超时时间
-set timeout 10
+set timeout 20
 
 # 启动安装脚本
 spawn bash /tmp/install.sh
@@ -18,14 +18,14 @@ expect "请选择：" {
     exp_continue
 }
 
-# 处理第三个交互提示，输入账户名 admin
+# 处理第三个交互提示，输入账户名 yanqian
 expect "设置 x-ui 登录用户名（回车跳过为随机6位字符）：" {
     send "yanqian\r"
     exp_continue
 }
 
 # 处理第四个交互提示，输入密码 wy520520
-expect "请输入密码:" {
+expect "设置 x-ui 登录密码（回车跳过为随机6位字符）：" {
     send "wy520520\r"
     exp_continue
 }
