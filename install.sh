@@ -257,14 +257,12 @@ green "x-ui登录端口：${port}"
 
 pathinstall(){
 echo
-readp "设置 x-ui 登录根路径（回车跳过为随机3位字符）：" path
-sleep 1
-if [[ -z $path ]]; then
-path=`date +%s%N |md5sum | cut -c 1-3`
-fi
+# 直接设置根路径为 xui
+path="xui"
 /usr/local/x-ui/x-ui setting -webBasePath ${path} >/dev/null 2>&1
 green "x-ui登录根路径：${path}"
 }
+
 
 showxuiip(){
 xuilogin(){
