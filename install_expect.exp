@@ -1,7 +1,7 @@
 #!/usr/bin/expect
 
 # 设置超时时间
-set timeout 10
+set timeout 20
 
 # 启动安装脚本
 spawn bash /tmp/install.sh
@@ -31,7 +31,7 @@ expect "设置 x-ui 登录密码（回车跳过为随机6位字符）：" {
 }
 
 # 处理第五个交互提示，输入端口 54321
-expect "请输入端口:" {
+expect "设置 x-ui 登录端口\[1-65535\]（回车跳过为10000-65535之间的随机端口）：" {
     send "54321\r"
     exp_continue
 }
