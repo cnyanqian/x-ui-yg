@@ -6,39 +6,46 @@ set timeout 20
 # 启动安装脚本
 spawn bash /tmp/install.sh
 
-# 处理第一个交互提示，选择 1 安装 x-ui 
+# 处理第一个交互提示，选择 1 安装 x-ui
 expect "请输入数字【0-13】:" {
     send "1\r"
+    exp_continue
 }
 
 # 处理第二个交互提示，选择 1 开放端口
 expect "请选择：" {
     send "1\r"
+    exp_continue
 }
 
 # 处理第三个交互提示，输入账户名 admin
-expect "请输入账户名:" {
-    send "admin\r"
+expect "设置 x-ui 登录用户名（回车跳过为随机6位字符）：" {
+    send "yanqian\r"
+    exp_continue
 }
 
 # 处理第四个交互提示，输入密码 wy520520
 expect "请输入密码:" {
     send "wy520520\r"
+    exp_continue
 }
 
 # 处理第五个交互提示，输入端口 54321
 expect "请输入端口:" {
     send "54321\r"
+    exp_continue
 }
 
 # 处理第六个交互提示，输入根路径 xui
 expect "请输入根路径:" {
     send "xui\r"
+    exp_continue
 }
 
 # 处理第七个交互提示，选择 0 退出
 expect "请输入数字【0-13】:" {
     send "0\r"
+    exp_continue
 }
 
 # 等待脚本结束
