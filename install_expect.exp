@@ -6,7 +6,7 @@ set timeout 20
 # 启动安装脚本
 spawn bash /tmp/install.sh
 
-# 处理第一个交互提示，选择 1 安装 x-ui
+# 处理第一个交互提示，选择 1 安装 x-ui 
 expect "请输入数字【0-13】:" {
     send "1\r"
 }
