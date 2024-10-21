@@ -30,12 +30,6 @@ expect "设置 x-ui 登录密码（回车跳过为随机6位字符）：" {
     exp_continue
 }
 
-# 处理第六个交互提示，输入根路径 xui
-expect "请输入根路径:" {
-    send "xui\r"
-    exp_continue
-}
-
 # 处理第七个交互提示，选择 0 退出
 expect "请输入数字【0-13】:" {
     send "0\r"
