@@ -1,7 +1,7 @@
 #!/usr/bin/expect
 
 # 设置超时时间
-set timeout 10
+set timeout 30
 
 # 启动安装脚本
 spawn bash /tmp/install.sh
