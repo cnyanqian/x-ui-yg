@@ -1,0 +1,19 @@
+#!/usr/bin/expect
+
+# 设置超时时间
+set timeout 20
+
+# 启动安装脚本
+spawn bash /tmp/install.sh
+
+# 处理交互式提示
+expect "Please select the geographic area in which you live" {
+    send "6\r"  ;# 选择 Asia
+}
+
+expect "Select a city" {
+    send "1\r"  ;# 选择第一个城市
+}
+
+# 等待脚本结束
+expect eof
