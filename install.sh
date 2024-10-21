@@ -406,7 +406,7 @@ yellow "请稍等……"
 if [[ x"${release}" == x"alpine" ]]; then
 rc-service x-ui restart
 else
-systemctl restart x-ui
+service x-ui restart
 fi
 sleep 2
 check_status
@@ -611,10 +611,10 @@ cat>/usr/local/x-ui/goxui.sh<<-\EOF
 xui=`ps -aux |grep "x-ui" |grep -v "grep" |wc -l`
 xray=`ps -aux |grep "xray" |grep -v "grep" |wc -l`
 if [ $xui = 0 ];then
-systemctl restart x-ui
+service x-ui restart
 fi
 if [ $xray = 0 ];then
-systemctl restart x-ui
+service x-ui restart
 fi
 EOF
 chmod +x /usr/local/x-ui/goxui.sh
@@ -624,7 +624,7 @@ cronxui(){
 uncronxui
 crontab -l > /tmp/crontab.tmp
 echo "* * * * * /usr/local/x-ui/goxui.sh" >> /tmp/crontab.tmp
-echo "0 2 * * * systemctl restart x-ui" >> /tmp/crontab.tmp
+echo "0 2 * * * service x-ui restart" >> /tmp/crontab.tmp
 crontab /tmp/crontab.tmp
 rm /tmp/crontab.tmp
 }
@@ -632,7 +632,7 @@ rm /tmp/crontab.tmp
 uncronxui(){
 crontab -l > /tmp/crontab.tmp
 sed -i '/goxui.sh/d' /tmp/crontab.tmp
-sed -i '/systemctl restart x-ui/d' /tmp/crontab.tmp
+sed -i '/service x-ui restart/d' /tmp/crontab.tmp
 sed -i '/xuiargoport.log/d' /tmp/crontab.tmp
 sed -i '/xuiargopid.log/d' /tmp/crontab.tmp
 sed -i '/xuiargoympid/d' /tmp/crontab.tmp
